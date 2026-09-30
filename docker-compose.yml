@@ -4,11 +4,15 @@
 # 如果你要在本地修改代码后构建，改用 docker-compose.local.yml。
 services:
   app:
-    image: ghcr.io/botesu/chatgpt2api:latest
+    build: .
+    image: chatgpt2api:local
     container_name: chatgpt2api
     restart: unless-stopped
+    mem_limit: 512m
+    oom_score_adj: 500
+    pids_limit: 100
     ports:
-      - "3001:80"
+      - "127.0.0.1:18800:80"
     volumes:
       - ./data:/app/data
       - ./config.json:/app/config.json

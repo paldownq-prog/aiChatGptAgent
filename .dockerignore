@@ -10,7 +10,6 @@ __pycache__
 web/.next
 web/node_modules
 web/out
-web_dist
 
 assets
 README.md
